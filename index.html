@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peminjaman Alat Olahraga</title>
+
+    <!-- SDK -->
+    <script src="/_sdk/data_sdk.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS External -->
+    <link rel="stylesheet" href="ctyle.css">
+</head>
+
+<body class="min-h-screen">
+    <div id="app" class="min-h-screen flex flex-col gradient-bg">
+
+
+        <!-- Header -->
+        <div class="w-full py-6 px-4">
+            <div class="max-w-6xl mx-auto text-center text-white">
+                <h1 id="app-title" class="text-4xl font-bold">Peminjaman Alat Olahraga</h1>
+                <p id="school-name" class="text-xl opacity-90">SDIT Bina Insani</p>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div class="flex-1 px-4 pb-8">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Form -->
+                <div class="bg-white rounded-2xl card-shadow p-6 mb-6">
+                    <h2 class="text-2xl font-bold mb-4">📝 Form Peminjaman</h2>
+
+                    <form id="loan-form" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input id="nama-peminjam" required placeholder="Nama Peminjam" class="input">
+                            <input id="kelas" required placeholder="Kelas (5A)" class="input">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <select id="nama-alat" required class="input">
+                                <option value="">Pilih Alat</option>
+                                <option>Bola Sepak</option>
+                                <option>Bola Voli</option>
+                                <option>Bola Basket</option>
+                                <option>Raket Badminton</option>
+                                <option>Matras</option>
+                                <option>Cone</option>
+                            </select>
+
+                            <input id="jumlah" type="number" min="1" value="1" class="input">
+                        </div>
+
+                        <textarea id="catatan" rows="2" placeholder="Catatan (opsional)" class="input"></textarea>
+
+                        <button id="submit-btn" class="btn-primary w-full">
+                            <span id="submit-btn-text">🏃 Pinjam Alat</span>
+                            <div id="submit-spinner" class="loading-spinner hidden"></div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Statistik -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="card">
+                        <p>Total Peminjaman</p>
+                        <h3 id="total-loans">0</h3>
+                    </div>
+                    <div class="card">
+                        <p>Sedang Dipinjam</p>
+                        <h3 id="active-loans">0</h3>
+                    </div>
+                </div>
+
+                <!-- List -->
+                <div class="bg-white rounded-2xl card-shadow p-6">
+                    <h2 class="text-2xl font-bold mb-4">📋 Daftar Peminjaman</h2>
+                    <div id="loans-container">
+                        <p class="text-center text-gray-500">Belum ada data</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JS External -->
+    <script src="script.js"></script>
+</body>
+
+</html>
